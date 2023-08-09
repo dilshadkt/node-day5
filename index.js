@@ -112,14 +112,88 @@
 
 /////////////glib & zlib ////////////
 
-const fs = require("node:fs");
-const zlib = require("node:zlib");
+// const fs = require("node:fs");
+// const zlib = require("node:zlib");
 
-const gzib = zlib.createGzip();
-const readableStream = fs.createReadStream("./greet.txt", {
-  encoding: "utf-8",
-  highWaterMark: 2,
-});
-readableStream.pipe(gzib).pipe(fs.WriteStream("./niyas.txt.gz"));
-const writableStream = fs.createWriteStream("./niyas.txt");
-readableStream.pipe(writableStream);
+// const gzib = zlib.createGzip();
+// const readableStream = fs.createReadStream("./greet.txt", {
+//   encoding: "utf-8",
+//   highWaterMark: 2,
+// });
+// readableStream.pipe(gzib).pipe(fs.WriteStream("./niyas.txt.gz"));
+// const writableStream = fs.createWriteStream("./niyas.txt");
+// readableStream.pipe(writableStream);
+
+///////////////// http module ////////
+// const http = require("node:http");
+// const server = http.createServer((req, res) => {
+//   res.writeHead(200);
+//   res.end("Dilshad");
+// });
+// server.listen(8080, () => {
+//   console.log("server is running..........");
+// });
+
+////////passing json data //////////////
+
+// const http = require("node:http");
+// const server = http.createServer((req, res) => {
+//   const me = { name: "Dilshad", age: 20 };
+//   res.writeHead(200, { "Content-Type": "application/json" });
+//   res.end(JSON.stringify(me));
+// });
+// server.listen(8080, () => {
+//   console.log("setver is running.......");
+// });
+
+//////////////html routing ///////////////
+
+// const http = require("node:http");
+// const server = http.createServer((req, res) => {
+//   if (req.url === "/about") {
+//     res.writeHead(200), { "Content-Type": "text/html" };
+//     res.end("<h1>This is about</h1>");
+//   } else {
+//     res.writeHead(404);
+//     res.end("page is not found");
+//   }
+// });
+// server.listen(8080, () => {
+//   console.log("sever is running.........");
+// });
+
+/////// crypto ////////
+// const crypto = require("node:crypto");
+// const start = Date.now();
+// crypto.pbkdf2Sync("password", "salt", 10000, 512, "sha512");
+// crypto.pbkdf2Sync("password", "salt", 10000, 512, "sha512");
+// crypto.pbkdf2Sync("password", "salt", 10000, 512, "sha512");
+
+// console.log("hash:", Date.now() - start);
+
+/////////// event loop ///////////////////////
+// console.log("first");
+// process.nextTick(() => console.log("this is next 1"));
+// console.log("second");
+// process.nextTick(() => console.log("this is next tick 2"));
+// console.log("three");
+
+// Promise.resolve().then(() => {
+//   console.log("promise");
+// });
+// process.nextTick(() => console.log("nxt"));
+// const fs = require("node:fs");
+// fs.readFile(__filename, () => {
+//   console.log("read file");
+// });
+
+// process.nextTick(() => console.log("next"));
+// Promise.resolve().then(() => console.log("promise"));
+// setTimeout(() => console.log("timeout"), 0);
+// setImmediate(() => {
+//   console.log("timeout");
+// });
+// for (let i = 0; i < 20000000; i++) {}
+
+const uppercase = require("./upperCase");
+uppercase("dilsmoanddgdg");
